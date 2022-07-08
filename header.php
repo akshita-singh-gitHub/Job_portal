@@ -86,7 +86,7 @@ body {
 
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="index2.php">Jobs</a>
+  <a href="index.php">Jobs</a>
   <a href="jobs.php">Services</a>
   <a href="#">Clients</a>
   <a href="#about">About</a>

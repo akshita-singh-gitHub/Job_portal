@@ -34,7 +34,7 @@
     <label for="CTC" class="form-label">CTC</label>
     <input type="text" class="form-control" name="CTC">
   </div>
-  
+ 
   <button type="submit" class="btn btn-primary" name="job">Submit</button>
 </form>
 
@@ -54,19 +54,25 @@
    <?php
    global $conn;
 
-   $sql="Select cname,position,CTC from jobs";
-   $result=mysqli_query($conn,$sql);
-   if($result->num_rows>0){
+   $sql="Select * from jobs";
+    $result=mysqli_query($conn,$sql);
+    $i=0;
+    if($result->num_rows>0){
 
-while($row=$result->fetch_assoc()){
-   $i=0;
-   echo"<td>".++$i."</td>
-   <td>" .$rows['cname']."</td>
-   <td>" .$rows['position']."</td>
-   <td>" .$rows['CTC']."</td>";   
- } }
-
-
+      while($row=$result->fetch_assoc()){
+        echo"
+        <tbody>
+        <tr>
+        <td>".++$i."</td>
+        <td>" .$row['cname']."</td>
+        <td>" .$row['position']."</td>
+        <td>" .$row['CTC']."</td>
+        </tr>";  
+      }}
+      else {
+        echo"";
+      }
+    
    ?>
            
   </tbody>
@@ -75,4 +81,5 @@ while($row=$result->fetch_assoc()){
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 </body>
-</html> 
+</html>
+

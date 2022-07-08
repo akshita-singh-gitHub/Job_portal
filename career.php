@@ -50,8 +50,54 @@
 </div>
     </div>
 
+    <table class="table table-striped">
 
+<thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Company Name</th>
+    <th scope="col">Position</th>
+    <th scope="col">CTC</th>
+  </tr>
+</thead>
+<tbody> 
 
+  <?php 
+   global $conn;
+  $sql="Select * from  jobs";
+  $result=mysqli_query($conn,$sql);
+  $i = 0;
+  if($result->num_rows>0){
+
+    while($rows=$result->fetch_assoc()){
+      echo"<tbody>
+      <tr>
+      <td>".++$i."</td>
+      <td>" .$row['position']."</td>
+      <td>" .$row['cname']."</td>
+      <td>" .$row['Jdecs']."</td>
+      <td>" .$row['skills']."</td>
+      <td>" .$row['CTC']."</td>
+      </tr>";  
+  
+      // <div class="col-md-4">
+      // <div class="jobs">
+      // <h3 style="text-align: center;">'.$rows['position'].'</h3>
+      // <h4 style="text-align: center;">'.$rows['cname'].'</h4>
+      // <p style ="color: black; text-align:justify;">'.$rows['Jdecs'].'</p>
+      // <p style ="color: black;"> <b>Skills Required:</b>'.$rows['skills'].'</p>
+      // <p style ="color: black;"> <b> CTC::</b>'.$rows['CTC'].'</p>
+      // </div>
+      // </div>;
+    }
+  }
+   
+  
+  ?>
+
+</tbody>
+  </table>
+</div>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>

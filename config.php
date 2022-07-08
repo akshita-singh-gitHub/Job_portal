@@ -37,7 +37,7 @@ if(isset($_POST['Login'])){
     $result=mysqli_query($conn,$query); 
     $row=mysqli_fetch_array($result,MYSQLI_ASSOC);
     if(mysqli_num_rows($result)==1){
-        header("location:index2.php");
+        header("location:index.php");
     }
     else{
         $error='emailid or password is incorrect';
@@ -51,7 +51,7 @@ if(isset($_POST['job'])){
     $skills=$_POST['skills'];
     $CTC=$_POST['CTC'];
 
-    $sql="INSERT INTO `jobs`( `cnamee`, `position`, `Jdesc`, `skills`, `CTC`) VALUES ('$cname', '$pos','$Jdesc','$skills','$CTC')";
+    $sql="INSERT INTO `jobs`( `cname`, `position`, `Jdesc`, `skills`, `CTC`) VALUES ('$cname', '$pos','$Jdesc','$skills','$CTC')";
     if(mysqli_query($conn,$sql)){
         echo "New job posted";
     }
@@ -61,5 +61,6 @@ if(isset($_POST['job'])){
     }
 }
 
-mysqli_close($conn);
+
 ?>
+
